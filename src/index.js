@@ -9,5 +9,4 @@ app.use('/whatsapp', router)
 
 app.listen(PORT, () => {
     console.log(`running on http://localhost:3000/`)
-    console.log(process.env.HOLA)
 })

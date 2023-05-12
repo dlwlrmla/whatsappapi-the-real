@@ -34,9 +34,10 @@ export const receivedMessage = (req, res) => {
         var changes = (entry["changes"])[0]
         var value = changes["value"]
         var messageObject = value["messages"]
-        
-        console.log(messageObject)
+        var messages = messageObject[0]
+        var text = GetTextUser(messages)
 
+        console.log(text)
 
         res.send("EVENT_RECEIVED")
     } catch (error) { 
@@ -44,4 +45,26 @@ export const receivedMessage = (req, res) => {
         res.send("EVENT_RECEIVED")
     }
 
+}
+
+const GetTextUser = (messages) => {
+    var text =""
+    var typeMessage = messages["type"]
+    if(typeMessage == "text"){
+        text = (messages["text"])["body"]
+    }else if(typeMessage=="interactive"){
+        var interactiveObject = messages["interactive"]
+        var typeInteractive = interactiveObject["type"]
+        console.log(interactiveObject)
+        if(typeInteractive == "button_reply"){
+            text = (interactiveObject["button_reply"])["title"]
+        }else if (typeInteractive == "list_reply"){
+            text = (interactiveObject["list_reply"])["title"]
+        }else{
+            console.log("sin mensaje")
+        }
+    }else{
+        console.log("sin mensaje")
+    }
+    return text
 }
