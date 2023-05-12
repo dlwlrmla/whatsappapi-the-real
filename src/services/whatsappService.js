@@ -22,7 +22,7 @@ export const SendMessageWhatsApp = (textResponse, number) => {
             body : data,
             headers: {
                 "Content-Type" : "application/json",
-                Authorization: process.env.BARIER
+                Authorization: "Bearer "+process.env.BARIER
             }
         }
 

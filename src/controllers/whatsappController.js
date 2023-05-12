@@ -1,12 +1,15 @@
 import dotenv from  "dotenv"
+import axios from 'axios'
 import {SendMessageWhatsApp} from "../services/whatsappService.js"
 dotenv.config()
 
+
+const accessToken = process.env.ACCESSTOKEN
+const token = ''
 export const verifyToken = (req, res) => {
 
     try {
-        var accessToken = process.env.ACCESSTOKEN
-        var token = req.query["hub.verify_token"]
+        token = req.query["hub.verify_token"]
         var challenge = req.query["hub.challenge"]
 
         if(challenge != null && token != null && token == accessToken){
@@ -48,6 +51,38 @@ export const receivedMessage = (req, res) => {
         }   */
 
         console.log(textazo)
+        try {
+            SendMessageWhatsApp(textazo, number)
+        } catch (error) {
+           console.error(error.message) 
+        }
+
+/*         try {
+             axios({
+                method: "POST",
+                url: `https://graph.facebook.com/v16.0/115259601562338/messages?access_token=${token}`,
+                data: {
+                    
+                        "messaging_product": "whatsapp",    
+                        "recipient_type": "individual",
+                        "to": number,
+                        "type": "text",
+                        "text": {
+                            "preview_url": false,
+                            "body": textazo
+                        }
+                },
+                headers:{
+                    "Content-Type" : "application/json",
+                    "Authorization": "BARIER "+process.env.BARIER
+                }
+            }) 
+            console.log(axios.url)
+            res.status(200).send("a")
+        } catch (error) {
+            res.status(400).send("axios error")
+            console.error(error)
+        } */
 
         res.send("EVENT_RECEIVED")
     } catch (error) { 
@@ -77,4 +112,9 @@ const GetTextUser = (messages) => {
         console.log("sin mensaje")
     }
     return text
+}
+
+
+const send = (text, number) => {
+
 }
