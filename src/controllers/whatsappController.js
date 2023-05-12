@@ -28,5 +28,20 @@ export const verifyToken = (req, res) => {
 }
 
 export const receivedMessage = (req, res) => {
-    res.send("reveived")
+    try {
+
+        var entry = (req.body["entry"])[0]
+        var changes = (entry["changes"])[0]
+        var value = changes["value"]
+        var messageObject = value["messages"]
+        
+        console.log(messageObject)
+
+
+        res.send("EVENT_RECEIVED")
+    } catch (error) { 
+        console.error(error.message)
+        res.send("EVENT_RECEIVED")
+    }
+
 }
