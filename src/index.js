@@ -2,7 +2,7 @@ import express from "express"
 import router from "./routes/routes.js"
 import dotenv from  "dotenv"
 dotenv.config()
-const PORT = 3000||process.env.PORT
+const PORT = process.env.PORT || 3000
 const app = express()
 app.use(express.json())
 app.use('/whatsapp', router)
