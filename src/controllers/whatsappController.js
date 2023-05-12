@@ -4,22 +4,27 @@ dotenv.config()
 export const verifyToken = (req, res) => {
 
     try {
-        var accesToken=process.env.ACCESSTOKEN
+        var accessToken = process.env.ACCESSTOKEN
         var token = req.query["hub.verify_token"]
         var challenge = req.query["hub.challenge"]
 
-        if(challenge!= null && token!= null && token == accesToken){
+        if(challenge != null && token != null && token == accessToken){
             res.send(challenge)
+        }else if (challenge == null){
+           res.status(400).send("challenge null") 
+        }else if (token == null){
+           res.status(400).send("token null") 
         }else{
-            res.status(400).send()
+           res.status(400).send("token not like acctoken") 
         }
-
+        
     } catch (error) {
-        res.status(400).send()
+        res.status(400).send("server internal error")
     }
 
 
-    res.send("verify Token")
+
+    res.send(accessToken)
 }
 
 export const receivedMessage = (req, res) => {
