@@ -1,4 +1,5 @@
 import dotenv from  "dotenv"
+import {SendMessageWhatsApp} from "../services/whatsappService.js"
 dotenv.config()
 
 export const verifyToken = (req, res) => {
@@ -34,8 +35,15 @@ export const receivedMessage = (req, res) => {
         var changes = (entry["changes"])[0]
         var value = changes["value"]
         var messageObject = value["messages"]
-        var messages = messageObject[0]
-        var text = GetTextUser(messages)
+
+
+        if(typeof messageObject != "undefined"){
+            var messages = messageObject[0]
+            var number = messages["from"]
+            var text = GetTextUser(messages)
+            console.log(text)
+            SendMessageWhatsApp("texto" + text, number)
+        }
 
         console.log(text)
 
