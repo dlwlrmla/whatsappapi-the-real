@@ -31,21 +31,23 @@ export const verifyToken = (req, res) => {
 export const receivedMessage = (req, res) => {
     try {
 
-        var entry = (req.body["entry"])[0]
+/*          var entry = (req.body["entry"])[0]
         var changes = (entry["changes"])[0]
         var value = changes["value"]
-        var messageObject = value["messages"]
-
-
-        if(typeof messageObject != "undefined"){
-            var messages = messageObject[0]
+        var messageObject = value["messages"]  */
+        var number =req.body.entry[0].changes[0].value.messages[0].from;
+        var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
+        //SendMessageWhatsApp(textazo)
+        console.log(number)
+/*  
+         if(typeof textazo.type != "undefined"){
             var number = messages["from"]
             var text = GetTextUser(messages)
             console.log(text)
             SendMessageWhatsApp("texto" + text, number)
-        }
+        }   */
 
-        console.log(text)
+        console.log(textazo)
 
         res.send("EVENT_RECEIVED")
     } catch (error) { 
