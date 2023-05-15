@@ -1,5 +1,4 @@
 import dotenv from  "dotenv"
-import axios from 'axios'
 import {SendMessageWhatsApp} from "../services/whatsappService.js"
 dotenv.config()
 
@@ -33,56 +32,33 @@ export const verifyToken = (req, res) => {
 
 export const receivedMessage = (req, res) => {
     try {
-
-/*          var entry = (req.body["entry"])[0]
-        var changes = (entry["changes"])[0]
-        var value = changes["value"]
-        var messageObject = value["messages"]  */
-        var number =req.body.entry[0].changes[0].value.messages[0].from;
+        let number = req.body.to
+        let text = req.body.text
+        console.log(text.body)
+        SendMessageWhatsApp(text, number)
+/*         var number =req.body.entry[0].changes[0].value.messages[0].from;
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
+        var textazo2 = req.body.entry[0].changes[0].value.messages[0]
+        console.log(textazo2.type)
         //SendMessageWhatsApp(textazo)
         console.log(number)
-/*  
+        GetTextUser(textazo2.type)
+ 
          if(typeof textazo.type != "undefined"){
             var number = messages["from"]
             var text = GetTextUser(messages)
             console.log(text)
-            SendMessageWhatsApp("texto" + text, number)
-        }   */
+            SendMessageWhatsApp( text, number)
 
-        console.log(textazo)
-        try {
+        }   
+
+        console.log(textazo) */
+/*         try {
             SendMessageWhatsApp(textazo, number)
         } catch (error) {
            console.error(error.message) 
-        }
-
-/*         try {
-             axios({
-                method: "POST",
-                url: `https://graph.facebook.com/v16.0/115259601562338/messages?access_token=${token}`,
-                data: {
-                    
-                        "messaging_product": "whatsapp",    
-                        "recipient_type": "individual",
-                        "to": number,
-                        "type": "text",
-                        "text": {
-                            "preview_url": false,
-                            "body": textazo
-                        }
-                },
-                headers:{
-                    "Content-Type" : "application/json",
-                    "Authorization": "BARIER "+process.env.BARIER
-                }
-            }) 
-            console.log(axios.url)
-            res.status(200).send("a")
-        } catch (error) {
-            res.status(400).send("axios error")
-            console.error(error)
         } */
+
 
         res.send("EVENT_RECEIVED")
     } catch (error) { 
@@ -93,25 +69,19 @@ export const receivedMessage = (req, res) => {
 }
 
 const GetTextUser = (messages) => {
-    var text =""
-    var typeMessage = messages["type"]
-    if(typeMessage == "text"){
-        text = (messages["text"])["body"]
-    }else if(typeMessage=="interactive"){
-        var interactiveObject = messages["interactive"]
-        var typeInteractive = interactiveObject["type"]
-        console.log(interactiveObject)
-        if(typeInteractive == "button_reply"){
-            text = (interactiveObject["button_reply"])["title"]
-        }else if (typeInteractive == "list_reply"){
-            text = (interactiveObject["list_reply"])["title"]
+    if(messages == "text"){
+        console.log("tipo texto")
+    }else if( messages != null && messages != 'text'){
+        if(messages== "button"){
+            console.log("button")
+        }else if (messages == "list"){
+            console.log("lista")
         }else{
             console.log("sin mensaje")
         }
     }else{
         console.log("sin mensaje")
     }
-    return text
 }
 
 
