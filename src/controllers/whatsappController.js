@@ -35,10 +35,7 @@ export const receivedMessage = (req, res) => {
          var number =req.body.entry[0].changes[0].value.messages[0].from;
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
-        console.log(textazo2.type)
-        //SendMessageWhatsApp(textazo)
-        console.log(number)
-        GetTextUser(textazo2.type)
+        GetTextUser(textazo2)
  
          if(typeof textazo.type != "undefined"){
             var number = messages["from"]
@@ -49,11 +46,11 @@ export const receivedMessage = (req, res) => {
         }   
 
         console.log(textazo) 
-/*         try {
+         try {
             SendMessageWhatsApp(textazo, number)
         } catch (error) {
            console.error(error.message) 
-        } */
+        } 
 
 
         res.send("EVENT_RECEIVED")
@@ -65,11 +62,11 @@ export const receivedMessage = (req, res) => {
 }
 
 const GetTextUser = (messages) => {
-    if(messages == "text"){
+    if(messages.type == "text"){
         console.log("tipo texto")
-    }else if( messages != null && messages != 'text'){
-        if(messages== "button"){
-            console.log("button")
+    }else if( messages != null && messages.type != 'text' && messages.type == 'interactive'){
+        if(messages.interactive.type== "list"){
+            console.log("list")
         }else if (messages == "list"){
             console.log("lista")
         }else{
