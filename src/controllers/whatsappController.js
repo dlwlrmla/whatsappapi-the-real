@@ -32,11 +32,7 @@ export const verifyToken = (req, res) => {
 
 export const receivedMessage = (req, res) => {
     try {
-        let number = req.body.to
-        let text = req.body.text
-        console.log(text.body)
-        SendMessageWhatsApp(text, number)
-/*         var number =req.body.entry[0].changes[0].value.messages[0].from;
+         var number =req.body.entry[0].changes[0].value.messages[0].from;
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
         console.log(textazo2.type)
@@ -52,7 +48,7 @@ export const receivedMessage = (req, res) => {
 
         }   
 
-        console.log(textazo) */
+        console.log(textazo) 
 /*         try {
             SendMessageWhatsApp(textazo, number)
         } catch (error) {
