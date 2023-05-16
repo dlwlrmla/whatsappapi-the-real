@@ -38,10 +38,10 @@ export const receivedMessage = (req, res) => {
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
 
         if(textazo2.type == "text" ){
-            let data = SampleText()
+            let data = SampleText(number)
             SendMessageWhatsApp(data)
         }else if(textazo2.type == "text" && textazo== 'a' ){
-            let data = SampleDocument()
+            let data = SampleDocument(number)
             SendMessageWhatsApp(data)
         }
         //GetTextUser(textazo2)
