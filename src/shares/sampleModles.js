@@ -57,7 +57,7 @@ export const SampleVideo = (textResponse, number) => {
 
         return data 
 }
-export const SampleDocument = (textResponse, number) => {
+export const SampleDocument = ( number) => {
     const data =JSON.stringify(
         {
             "messaging_product": "whatsapp",    
