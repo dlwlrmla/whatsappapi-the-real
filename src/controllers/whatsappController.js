@@ -37,12 +37,17 @@ export const receivedMessage = (req, res) => {
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
 
         if(textazo!= null && textazo2 != null){
-            if(textazo != ""){
-                Process(textazo, number)
 
+
+            try {
+                if(textazo != ""){
+                    Process(textazo, number)
+
+                }
+                
+            } catch (error) {
+                console.error(error)                
             }
-
-
         }
 
         res.send("EVENT_RECEIVED")

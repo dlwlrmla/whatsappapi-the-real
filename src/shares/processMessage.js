@@ -1,4 +1,4 @@
-import { MessageText } from "./whatsappModels.js";
+import { MessageText, SampleList } from "./whatsappModels.js";
 import { SendMessageWhatsApp } from "../services/whatsappService.js";
 
 export const Process = (text, number) => {
@@ -13,6 +13,8 @@ export const Process = (text, number) => {
         //AGRADECER
         let model = MessageText("gracias a ti", number)
         models.push(model)
+        let modelist = SampleList( number)
+        models.push(modelist)
     }else if(text.includes('adios' || text.includes('chao'))){
         //DESPEDIR
         let model = MessageText("xao", number)
