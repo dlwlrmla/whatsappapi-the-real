@@ -37,10 +37,11 @@ export const receivedMessage = (req, res) => {
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
 
-        if(textazo2.type == "text" && textazo != 'a' ){
+        if(textazo2.type == "text" && textazo != 'documento' ){
             let data = SampleText("aver", number)
             SendMessageWhatsApp(data)
-        }else if(textazo2.type == "text" && textazo== 'a' ){
+            console.log(textazo)
+        }else if(textazo2.type == "text" && textazo== 'documento' ){
             let data = SampleDocument(number)
             SendMessageWhatsApp(data)
         }
