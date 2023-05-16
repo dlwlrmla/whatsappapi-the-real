@@ -1,6 +1,5 @@
 import dotenv from  "dotenv"
-import { SampleText, SampleDocument } from "../shares/sampleModles.js"
-import {SendMessageWhatsApp} from "../services/whatsappService.js"
+import { Process } from "../shares/processMessage.js"
 dotenv.config()
 
 
@@ -37,24 +36,14 @@ export const receivedMessage = (req, res) => {
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
 
-        if(textazo2.type == "text" && textazo != 'documento' ){
-            let data = SampleText("aver", number)
-            SendMessageWhatsApp(data)
-            console.log(textazo)
-        }else if(textazo2.type == "text" && textazo== 'documento' ){
-            let data = SampleDocument(number)
-            SendMessageWhatsApp(data)
+        if(textazo!= null && textazo2 != null){
+            if(textazo != ""){
+                Process(textazo, number)
+
+            }
+
+
         }
-        //GetTextUser(textazo2)
- 
-/*          if(typeof textazo.type != "undefined"){
-            var number = messages["from"]
-            var text = GetTextUser(messages)
-            console.log(text)
-            SendMessageWhatsApp( text, number)
-
-        }    */
-
 
         res.send("EVENT_RECEIVED")
     } catch (error) { 
