@@ -2,18 +2,7 @@ import https from "https"
 import dotenv from  "dotenv"
 dotenv.config()
 
-export const SendMessageWhatsApp = (textResponse, number) => {
-    const data =JSON.stringify(
-        {
-            "messaging_product": "whatsapp",    
-            "recipient_type": "individual",
-            "to": number,
-            "type": "text",
-            "text": {
-                "preview_url": false,
-                "body": textResponse
-            }
-        })
+export const SendMessageWhatsApp = (data) => {
 
         const options = {
             host: "graph.facebook.com",

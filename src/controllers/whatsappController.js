@@ -1,4 +1,5 @@
 import dotenv from  "dotenv"
+import { SampleText, SampleDocument } from "../shares/sampleModles.js"
 import {SendMessageWhatsApp} from "../services/whatsappService.js"
 dotenv.config()
 
@@ -35,15 +36,23 @@ export const receivedMessage = (req, res) => {
          var number =req.body.entry[0].changes[0].value.messages[0].from;
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
-        GetTextUser(textazo2)
+
+        if(textazo2.type == "text"){
+            let data = SampleText()
+            SendMessageWhatsApp(data)
+        }else if(textazo2.type != "text"){
+            let data = SampleDocument()
+            SendMessageWhatsApp(data)
+        }
+        //GetTextUser(textazo2)
  
-         if(typeof textazo.type != "undefined"){
+/*          if(typeof textazo.type != "undefined"){
             var number = messages["from"]
             var text = GetTextUser(messages)
             console.log(text)
             SendMessageWhatsApp( text, number)
 
-        }   
+        }    */
 
         console.log(textazo) 
          try {
@@ -73,11 +82,8 @@ const GetTextUser = (messages) => {
             console.log("sin mensaje")
         }
     }else{
-        console.log("sin mensaje")
+        console.log("sin mensaje void 2 de gettext user")
+        console.log(messages.type)
     }
 }
 
-
-const send = (text, number) => {
-
-}
