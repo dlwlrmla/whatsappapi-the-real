@@ -6,7 +6,7 @@ export const MessageText = (textResponse, number) => {
             "to": number,
             "type": "text",
             "text": {
-                "preview_url": false,
+                "preview_url": true,
                 "body": textResponse
             }
         })
@@ -72,4 +72,53 @@ export const SampleList = (number) => {
             }
         }
     )
+    return data
+}
+
+export const MessageButton = ( number) => {
+    const data =JSON.stringify(
+        {
+            "to": number,
+            "recipient_type": "individual",
+            "type": "button",
+            "button": {
+                "header": {
+                    "type": "text", 
+                    "text": "<Header Text>"
+                },
+                "body": {
+                    "text": "<Body Text>"
+                },
+                "footer": {
+                    "text": "<Footer Text>"
+                },
+                "buttons": [
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "payload": "<Button 1 Text>",
+                            "title" : "<Button 1 Description>"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "payload": "<Button 2 Text>",
+                            "title" : "<Button 2 Description>"
+                        }
+                    },
+                    {
+                        "type": "reply",
+                        "reply": {
+                            "payload": "<Button 3 Text>",
+                            "title" : "<Button 3 Description>"
+                        }
+                    }
+                ]
+            }
+        }
+       
+        )
+
+        return data 
 }

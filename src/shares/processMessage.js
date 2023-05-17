@@ -1,4 +1,4 @@
-import { MessageText, SampleList } from "./whatsappModels.js";
+import { MessageButton, MessageText, SampleList } from "./whatsappModels.js";
 import { SendMessageWhatsApp } from "../services/whatsappService.js";
 
 export const Process = (text, number) => {
@@ -14,19 +14,31 @@ export const Process = (text, number) => {
         let model = MessageText("gracias a ti", number)
         models.push(model)
         let modelist = SampleList( number)
+        console.log("la wea ",modelist)
         models.push(modelist)
     }else if(text.includes('adios' || text.includes('chao'))){
         //DESPEDIR
         let model = MessageText("xao", number)
         models.push(model)
+    }else if(text.includes('comprar')){
+        //comprar
+        let model = MessageButton("desplegando lista de botones", number)
+        models.push(model)
+       
+    }else if(text.includes('vender')){
+        //VENDER
+        let model = MessageText("registrazaun ", number)
+        models.push(model)
+
     }else{
 
         let model = MessageText("no entiendo nada", number)
         models.push(model)
     }
 
-    models.forEach(model => {
+    models.forEach((model, i) => {
         SendMessageWhatsApp(model)
+        console.log(`modelo ${i} ${model}` )
     });
 
 }
