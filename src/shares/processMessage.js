@@ -22,7 +22,7 @@ export const Process = (text, number) => {
         models.push(model)
     }else if(text.includes('comprar')){
         //comprar
-        let model = MessageButton("desplegando lista de botones", number)
+        let model = MessageButton( number)
         models.push(model)
        
     }else if(text.includes('vender')){
