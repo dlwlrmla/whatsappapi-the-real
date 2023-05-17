@@ -78,47 +78,33 @@ export const SampleList = (number) => {
 export const MessageButton = ( number) => {
     const data =JSON.stringify(
         {
-            "to": number,
+            "messaging_product": "whatsapp",  
             "recipient_type": "individual",
-            "type": "button",
-            "button": {
-                "header": {
-                    "type": "text", 
-                    "text": "<Header Text>"
-                },
-                "body": {
-                    "text": "<Body Text>"
-                },
-                "footer": {
-                    "text": "<Footer Text>"
-                },
+            "to": number,
+            "type": "interactive",
+            "interactive" : {
+                "type" : "button",
+                "body" : "selecciona uno de los productos"
+            },
+            "action" : {
                 "buttons": [
                     {
-                        "type": "reply",
+                        "type" : "reply",
                         "reply": {
-                            "payload": "<Button 1 Text>",
-                            "title" : "<Button 1 Description>"
+                            "id" : "001",
+                            "title" : "Si"
                         }
                     },
                     {
                         "type": "reply",
-                        "reply": {
-                            "payload": "<Button 2 Text>",
-                            "title" : "<Button 2 Description>"
-                        }
-                    },
-                    {
-                        "type": "reply",
-                        "reply": {
-                            "payload": "<Button 3 Text>",
-                            "title" : "<Button 3 Description>"
+                        "reply":{
+                            "id" : "002",
+                            "title" : "No"
                         }
                     }
                 ]
             }
         }
-       
-        )
-
-        return data 
+    )
+             return data 
 }
