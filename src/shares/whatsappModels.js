@@ -78,31 +78,33 @@ export const SampleList = (number) => {
 export const MessageButton = ( number) => {
     const data =JSON.stringify(
         {
-            "messaging_product": "whatsapp",  
+            "messaging_product": "whatsapp",
             "recipient_type": "individual",
             "to": number,
             "type": "interactive",
-            "interactive" : {
-                "type" : "button",
-                "body" : "selecciona uno de los productos"
-            },
-            "action" : {
-                "buttons": [
-                    {
-                        "type" : "reply",
-                        "reply": {
-                            "id" : "001",
-                            "title" : "Si"
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "<BUTTON_TEXT>"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "<UNIQUE_BUTTON_ID_1>",
+                                "title": "<BUTTON_TITLE_1>"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "<UNIQUE_BUTTON_ID_2>",
+                                "title": "<BUTTON_TITLE_2>"
+                            }
                         }
-                    },
-                    {
-                        "type": "reply",
-                        "reply":{
-                            "id" : "002",
-                            "title" : "No"
-                        }
-                    }
-                ]
+                    ]
+                }
             }
         }
     )

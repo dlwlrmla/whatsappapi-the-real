@@ -37,7 +37,7 @@ export const Process = (text, number) => {
     }
 
     models.forEach((model, i) => {
-        SendMessageWhatsApp(model)
+        SendMessageWhatsApp(model)  
         console.log(`modelo ${i} ${model}` )
     });
 
