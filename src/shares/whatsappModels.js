@@ -23,7 +23,7 @@ export const SampleList = (number) => {
             "to": number,
             "type": "interactive",
             "interactive": {
-                "type": "list",
+                "type": "reply",
                 "header": {
                     "type": "text",
                     "text": "lista de weas"
@@ -69,7 +69,7 @@ export const MessageButton = ( number) => {
             "to": number,
             "type": "interactive",
             "interactive": {
-                "type": "button",
+                "type": "reply",
                 "body": {
                     "text": "elija una opcion"
                 },
