@@ -26,10 +26,10 @@ export const SampleList = (number) => {
                 "type": "list",
                 "header": {
                     "type": "text",
-                    "text": "<HEADER_TEXT>"
+                    "text": "lista de weas"
                 },
                 "body": {
-                    "text": "<BODY_TEXT>"
+                    "text": "elija una opcion"
                 },
                 "footer": {
                     "text": "<FOOTER_TEXT>"
@@ -38,35 +38,21 @@ export const SampleList = (number) => {
                     "button": "<BUTTON_TEXT>",
                     "sections": [
                         {
-                            "title": "<LIST_SECTION_1_TITLE>",
+                            "title": "elija si comprar o vender",
                             "rows": [
                                 {
                                     "id": "<LIST_SECTION_1_ROW_1_ID>",
-                                    "title": "<SECTION_1_ROW_1_TITLE>",
-                                    "description": "<SECTION_1_ROW_1_DESC>"
+                                    "title": "comprar",
+                                    "description": "comprar alguna wea, botones"
                                 },
                                 {
                                     "id": "<LIST_SECTION_1_ROW_2_ID>",
-                                    "title": "<SECTION_1_ROW_2_TITLE>",
-                                    "description": "<SECTION_1_ROW_2_DESC>"
-                                }
-                            ]
-                        },
-                        {
-                            "title": "<LIST_SECTION_2_TITLE>",
-                            "rows": [
-                                {
-                                    "id": "<LIST_SECTION_2_ROW_1_ID>",
-                                    "title": "<SECTION_2_ROW_1_TITLE>",
-                                    "description": "<SECTION_2_ROW_1_DESC>"
-                                },
-                                {
-                                    "id": "<LIST_SECTION_2_ROW_2_ID>",
-                                    "title": "<SECTION_2_ROW_2_TITLE>",
-                                    "description": "<SECTION_2_ROW_2_DESC>"
+                                    "title": "gracias",
+                                    "description": "vender alguna wea vuelve a la lista"
                                 }
                             ]
                         }
+
                     ]
                 }
             }
@@ -85,7 +71,7 @@ export const MessageButton = ( number) => {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": "<BUTTON_TEXT>"
+                    "text": "elija una opcion"
                 },
                 "action": {
                     "buttons": [
