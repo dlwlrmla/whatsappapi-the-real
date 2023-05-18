@@ -11,8 +11,8 @@ export const Process = (text, number) => {
         models.push(model)
     }else if(text.includes('gracias')){
         //AGRADECER
-        let model = MessageText("gracias a ti", number)
-        models.push(model)
+/*         let model = MessageText("gracias a ti", number)
+        models.push(model) */
         let modelist = SampleList( number)
         console.log("la wea ",modelist)
         models.push(modelist)
