@@ -3,7 +3,7 @@ import dotenv from  "dotenv"
 dotenv.config()
 export const pool = createPool({
     host: process.env.HOST,
-    port: process.env.PORT,
+    port: process.env.PORT2,
     user : process.env.USER,
     password: process.env.PASSWORD,
     database: "railway"
