@@ -1,14 +1,18 @@
 import { MessageButton, MessageText, SampleList } from "./whatsappModels.js";
 import { SendMessageWhatsApp } from "../services/whatsappService.js";
+import { createUser, getOneUser } from "../controllers/databaseControllers.js";
 
-export const Process = (text, number) => {
+export const Process = async(text, number) => {
     text = text.toLowerCase()
     let models = []
+    let modelsTrack = []
     try {
     if(text.includes('hola')){
         //SALUDAR
-        let model = MessageText("hola, un gusto saludarte", number)
+        let model = MessageText("hola, un gusto saludarte ingresa tu nombre porfa", number)
         models.push(model)
+        modelsTrack.push(1)
+
     }else if(text.includes('lista')){
         //AGRADECER
 /*         let model = MessageText("gracias a ti", number)
