@@ -23,7 +23,7 @@ export const SampleList = (number) => {
             "to": number,
             "type": "interactive",
             "interactive": {
-                "type": "reply",
+                "type": "list",
                 "header": {
                     "type": "text",
                     "text": "lista de weas"
@@ -69,9 +69,9 @@ export const MessageButton = ( number) => {
             "to": number,
             "type": "interactive",
             "interactive": {
-                "type": "reply",
+                "type": "button",
                 "body": {
-                    "text": "elija una opcion"
+                    "text": "Botones"
                 },
                 "action": {
                     "buttons": [
@@ -79,14 +79,14 @@ export const MessageButton = ( number) => {
                             "type": "reply",
                             "reply": {
                                 "id": "<UNIQUE_BUTTON_ID_1>",
-                                "title": "gracias"
+                                "title": "<BUTTON_TITLE_1>"
                             }
                         },
                         {
                             "type": "reply",
                             "reply": {
                                 "id": "<UNIQUE_BUTTON_ID_2>",
-                                "title": "comprar"
+                                "title": "<BUTTON_TITLE_2>"
                             }
                         }
                     ]
