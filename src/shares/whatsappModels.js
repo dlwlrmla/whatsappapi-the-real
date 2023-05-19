@@ -79,14 +79,14 @@ export const MessageButton = ( number) => {
                             "type": "reply",
                             "reply": {
                                 "id": "<UNIQUE_BUTTON_ID_1>",
-                                "title": "<BUTTON_TITLE_1>"
+                                "title": "comprar"
                             }
                         },
                         {
                             "type": "reply",
                             "reply": {
                                 "id": "<UNIQUE_BUTTON_ID_2>",
-                                "title": "<BUTTON_TITLE_2>"
+                                "title": "gracias"
                             }
                         }
                     ]
