@@ -1,8 +1,15 @@
 import { MessageButton, MessageText, SampleList } from "./whatsappModels.js";
 import { SendMessageWhatsApp } from "../services/whatsappService.js";
-import { createUser, getOneUser } from "../controllers/databaseControllers.js";
 
-export const Process = async(text, number) => {
+export const Process= (text, number) => {
+    text = text.toLowerCase()
+    console.log(text)
+    if(text.includes("hola")){
+        let model = MessageText("hola que tal", number)
+        SendMessageWhatsApp(model)
+    }
+}
+export const ProcessOriginal = async(text, number) => {
     text = text.toLowerCase()
     let models = []
     let modelsTrack = []
