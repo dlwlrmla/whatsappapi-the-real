@@ -32,9 +32,11 @@ export const verifyToken = (req, res) => {
 
 export const receivedMessage = (req, res) => {
     try {
+        let formato = req.body
          var number =req.body.entry[0].changes[0].value.messages[0].from;
         var textazo =req.body.entry[0].changes[0].value.messages[0].text.body;
         var textazo2 = req.body.entry[0].changes[0].value.messages[0]
+        console.log("textazo",textazo,"textazo2" ,textazo2, number)
 
         if(textazo!= null && textazo2 != null){
 
@@ -42,7 +44,6 @@ export const receivedMessage = (req, res) => {
             try {
                 if(textazo != ""){
                     Process(textazo, number)
-
                 }
                 
             } catch (error) {
