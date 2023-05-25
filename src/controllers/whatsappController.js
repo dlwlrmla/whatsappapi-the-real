@@ -4,7 +4,7 @@ dotenv.config()
 
 
 const accessToken = process.env.ACCESSTOKEN
-const token = ''
+const token = 'aloalo'
 export const verifyToken = (req, res) => {
 
     try {
